@@ -20,7 +20,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
-    public static final String INTENT_REDIRECT_KEY = "redirect_intent";
+    // public static final String INTENT_REDIRECT_KEY = "redirect_intent";
 
     private LoginUtils loginUtils;
 
@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void onLoginFinished() {
-        Intent redirectIntent = getIntent().getParcelableExtra(INTENT_REDIRECT_KEY);
+        Intent redirectIntent = getIntent().getParcelableExtra("redirect_intent");
         if(redirectIntent != null) {
             startActivity(redirectIntent);
         }
