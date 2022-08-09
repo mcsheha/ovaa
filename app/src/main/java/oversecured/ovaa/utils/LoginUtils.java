@@ -8,9 +8,9 @@ import oversecured.ovaa.R;
 import oversecured.ovaa.objects.LoginData;
 
 public class LoginUtils {
-    private static final String EMAIL_KEY = "email";
-    private static final String PASSWORD_KEY = "password";
-    private static final String LOGIN_URL_KEY = "login_url";
+    // private static final String EMAIL_KEY = "email";
+    // private static final String PASSWORD_KEY = "password";
+    // private static final String LOGIN_URL_KEY = "login_url";
 
     private static LoginUtils utils;
 
@@ -32,29 +32,29 @@ public class LoginUtils {
     }
 
     public boolean isLoggedIn() {
-        return !TextUtils.isEmpty(preferences.getString(EMAIL_KEY, null));
+        return !TextUtils.isEmpty(preferences.getString("email", null));
     }
 
     public void saveCredentials(LoginData loginData) {
-        editor.putString(EMAIL_KEY, loginData.email)
-                .putString(PASSWORD_KEY, loginData.password)
+        editor.putString("email", loginData.email)
+                .putString("password, loginData.password)
                 .commit();
     }
 
     public LoginData getLoginData() {
-        return new LoginData(preferences.getString(EMAIL_KEY, null),
-                preferences.getString(PASSWORD_KEY, null));
+        return new LoginData(preferences.getString("email", null),
+                preferences.getString("password, null));
     }
 
     public void setLoginUrl(String url) {
-        editor.putString(LOGIN_URL_KEY, url).commit();
+        editor.putString("login_url", url).commit();
     }
 
     public String getLoginUrl() {
-        String url = preferences.getString(LOGIN_URL_KEY, null);
+        String url = preferences.getString("login_url", null);
         if(TextUtils.isEmpty(url)) {
             url = context.getString(R.string.login_url);
-            editor.putString(LOGIN_URL_KEY, url).commit();
+            editor.putString("login_url", url).commit();
         }
         return url;
     }
